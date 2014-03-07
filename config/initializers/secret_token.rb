@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Socializer::Application.config.secret_key_base = '651d2c02b88cf74662608701b4a89821442d251505dbdb07e45c479fe2baf1dbd854268faef88522aea06e97b49a9fbd35db2dd03b907ac44b589a5ecef3b786'
+Socializer::Application.config.secret_key_base = 'cce54be0805219806efcc4b500775f26640a3e5748fb0059786bf721595befc0ff0fb2512fbb3cc429fc2fd6972a17cba971a26b0192a8126e0a0dc0f981bb5d'
