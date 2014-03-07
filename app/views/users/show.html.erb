@@ -1,4 +1,18 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<p>
+	
+</p>
+
+
 <%= link_to 'Edit account', edit_user_path %>
+
+	<% unless current_user === @user  %>
+		<% if current_user.follows?(@user)  %>
+			<%= link_to("unfollow", follow_user_path(@user), method: :post) %>
+		<% else %>
+			<%= link_to("follow", follow_user_path(@user), method: :post) %>
+		<% end %>
+	<% end %>
+
