@@ -23,16 +23,18 @@ class UsersController < ApplicationController
   # end
 
   def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
+    authorize! :index, @user, :message => 'Tienes que ser administrador para acceder.'
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @seguidores = @user.followers(User)
+    @siguiendo = @user.followees(User)
   end
   
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    authorize! :update, @user, :message => 'Tienes que ser administrador para acceder.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
       redirect_to users_path, :notice => "User updated."
@@ -42,13 +44,13 @@ class UsersController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
+    authorize! :destroy, @user, :message => 'Tienes que ser administrador para acceder.'
     user = User.find(params[:id])
     unless user == current_user
       user.destroy
-      redirect_to users_path, :notice => "User deleted."
+      redirect_to users_path, :notice => "Usuario Eliminado."
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to users_path, :notice => "No puedes eliminarte a ti mismo."
     end
   end
 end

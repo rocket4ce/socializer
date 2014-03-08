@@ -1,1 +1,14 @@
 <h3>Home</h3>
+<ul>
+	 <% @portafolios.each do |portafolio| %>
+	<li>
+		
+		      <tr>
+		        <td><%= portafolio.descripcion %></td>
+		        <td><%= portafolio.user_id %></td>
+		        <td><%= link_to 'Show', portafolio %></td>
+		      </tr>
+		
+	</li>
+	<% end %>
+</ul>

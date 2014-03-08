@@ -1,4 +1,6 @@
 Socializer::Application.routes.draw do
+  resources :portafolios
+
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users

@@ -1,18 +1,30 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
-<p>
-	
-</p>
-
-
-<%= link_to 'Edit account', edit_user_path %>
-
-	<% unless current_user === @user  %>
-		<% if current_user.follows?(@user)  %>
-			<%= link_to("unfollow", follow_user_path(@user), method: :post) %>
-		<% else %>
-			<%= link_to("follow", follow_user_path(@user), method: :post) %>
-		<% end %>
+<p>a <%= @user.name %> lo siguen:
+	<% @seguidores.each do |s| %>
+		<li class="<%= s.id %>"><%=link_to s.name, controller: "users", action: "show", id: s.id %></li>
 	<% end %>
+ </p>
+
+<p><%= @user.name %> sigue a:
+<ul>
+	<% @siguiendo.each do |s| %>
+		<li class="<%= s.id %>"><%=link_to s.name, controller: "users", action: "show", id: s.id %></li>
+	<% end %>
+</ul>
+ </p>
+	
+
+<% if current_user === @user %>
+	<%= link_to 'Edit account', edit_user_registration_path %>
+<% end %>
+
+<% unless current_user === @user  %>
+	<% if current_user.follows?(@user)  %>
+		<%= link_to("unfollow", follow_user_path(@user), method: :post) %>
+	<% else %>
+		<%= link_to("follow", follow_user_path(@user), method: :post) %>
+	<% end %>
+<% end %>
 
