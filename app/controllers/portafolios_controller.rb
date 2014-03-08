@@ -5,12 +5,14 @@ class PortafoliosController < ApplicationController
   # GET /portafolios
   # GET /portafolios.json
   def index
+      @user = Portafolio.find_by(id: params[:id])
       @portafolios = Portafolio.all
   end
 
   # GET /portafolios/1
   # GET /portafolios/1.json
   def show
+    @user = Portafolio.find_by(id: params[:id])
   end
 
   # GET /portafolios/new

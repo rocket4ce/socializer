@@ -5,8 +5,8 @@
 		
 		      <tr>
 		        <td><%= portafolio.descripcion %></td>
-		        <td><%= portafolio.user_id %></td>
-		        <td><%= link_to 'Show', portafolio %></td>
+		        <td><%= portafolio.user.name %></td>
+		        <td><%= link_to 'Show', user_portafolio_path(@user,portafolio) %></td>
 		      </tr>
 		
 	</li>
