@@ -15,6 +15,7 @@ gem 'rolify'
 gem 'simple_form'
 gem "socialization"
 gem 'impressionist'
+gem 'unicorn'
 group :development do
   gem 'better_errors'
   gem 'sqlite3'
@@ -23,7 +24,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+# gem 'rails_12factor', group: :production
+# group :production do
+# 	gem 'pg'
+# end
