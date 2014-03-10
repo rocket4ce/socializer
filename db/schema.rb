@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310040224) do
+ActiveRecord::Schema.define(version: 20140310081953) do
 
   create_table "follows", force: true do |t|
     t.string   "follower_type"
@@ -49,6 +49,24 @@ ActiveRecord::Schema.define(version: 20140310040224) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+
+  create_table "perfiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "tabajo"
+    t.string   "ciudad"
+    t.text     "descripcion"
+    t.string   "telefono"
+    t.string   "celular"
+    t.string   "face"
+    t.string   "tw"
+    t.string   "g"
+    t.string   "you"
+    t.string   "pin"
+    t.string   "link"
+    t.string   "flr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "portafolios", force: true do |t|
     t.text     "descripcion"

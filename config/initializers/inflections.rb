@@ -9,6 +9,7 @@
    inflect.irregular 'portafolio', 'portafolios'
    inflect.irregular 'articulo', 'articulos'
    inflect.irregular 'categoria', 'categorias'
+   inflect.irregular 'perfil', 'perfiles'
 #   inflect.uncountable %w( fish sheep )
  end
 

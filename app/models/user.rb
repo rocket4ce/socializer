@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :portafolios
+  has_one :perfil
   acts_as_follower
   acts_as_followable
 end

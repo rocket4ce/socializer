@@ -1,4 +1,7 @@
 Socializer::Application.routes.draw do
+  
+  resources :perfiles, only: [:index, :show, :update]
+
   # resources :portafolios
 
   root :to => "home#index"
