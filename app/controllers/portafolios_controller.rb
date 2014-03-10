@@ -62,9 +62,9 @@ class PortafoliosController < ApplicationController
   # DELETE /portafolios/1
   # DELETE /portafolios/1.json
   def destroy
-    @portafolio.destroy
+    Portafolio.destroy
     respond_to do |format|
-      format.html { redirect_to portafolios_url }
+      format.html { redirect_to user_portafolios_url }
       format.json { head :no_content }
     end
   end
