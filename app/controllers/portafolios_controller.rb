@@ -1,7 +1,7 @@
 class PortafoliosController < ApplicationController
   before_filter :authenticate_user! , except: [:index, :show]
   before_action :set_portafolio, only: [:show]
-
+  impressionist :actions=>[:show,:index]
   # GET /portafolios
   # GET /portafolios.json
   def index
