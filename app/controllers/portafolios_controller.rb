@@ -1,7 +1,6 @@
 class PortafoliosController < ApplicationController
   before_filter :authenticate_user! , except: [:index, :show]
   before_action :set_portafolio, only: [:show]
-  impressionist :actions=>[:show,:index]
 
   # GET /portafolios
   # GET /portafolios.json
@@ -14,7 +13,6 @@ class PortafoliosController < ApplicationController
   # GET /portafolios/1.json
   def show
     @user = Portafolio.find_by(id: params[:id])
-    
   end
 
   # GET /portafolios/new

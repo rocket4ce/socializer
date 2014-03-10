@@ -3,5 +3,4 @@ class Portafolio < ActiveRecord::Base
 	# SI UN USUARIO CANCELA LA CUENTA, SE ELIMINE EL PORTAFOLIO
 	# CANTIADAD DE TEXTO
 	belongs_to :user
-	is_impressionable
 end

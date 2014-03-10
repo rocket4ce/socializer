@@ -7,7 +7,6 @@
 		        <td><%= portafolio.descripcion %></td>
 		        <td><%= portafolio.user.name %></td>
 		        <td><%= link_to 'Show', user_portafolio_path(portafolio.user_id,portafolio) %></td>
-		        <%= portafolio.impressionist_count(:filter=>:session_hash) %>
 		      </tr>
 		
 	</li>
