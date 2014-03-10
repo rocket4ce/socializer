@@ -4,10 +4,6 @@ class PortafoliosController < ApplicationController
   impressionist :actions=>[:show,:index]
   # GET /portafolios
   # GET /portafolios.json
-  def index
-      @user = Portafolio.find_by(id: params[:id])
-      @portafolios = Portafolio.all
-  end
 
   # GET /portafolios/1
   # GET /portafolios/1.json
@@ -61,8 +57,8 @@ class PortafoliosController < ApplicationController
 
   # DELETE /portafolios/1
   # DELETE /portafolios/1.json
-  def destroy
-    Portafolio.destroy
+  def destroy 
+    current_user.portafolios.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to user_portafolios_url }
       format.json { head :no_content }

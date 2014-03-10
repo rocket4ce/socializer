@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+ 	rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+	private
+
+	  def record_not_found
+	    render text: "404 Not Found", status: 404
+	  end
 end
