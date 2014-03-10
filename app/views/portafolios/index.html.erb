@@ -16,7 +16,7 @@
       <tr>
         <td><%= portafolio.titulo %></td>
         <td><%= portafolio.descripcion %></td>
-        <td><%= link_to portafolio.user.name, controller: "users", action: "show", id: portafolio.user.id %></td>
+        <td><%= portafolio.user.name %></td>
         <td><%= link_to 'Show', portafolio %></td>
         <td><%= link_to('Edit', edit_portafolio_path(portafolio)) if current_user.id == portafolio.user_id  %></td>
         <td><%= link_to('Destroy', portafolio, method: :delete, data: { confirm: '¿Estas seguro que quieres eliminar este Proyecto?' }) if current_user.id == portafolio.user_id %></td>

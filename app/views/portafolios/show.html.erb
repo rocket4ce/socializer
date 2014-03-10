@@ -11,11 +11,10 @@
 
 <p>
   <strong>User:</strong>
-  <%= link_to @portafolio.user.name, controller: "users", action: "show", id: @portafolio.user.id %>
+  <%= @portafolio.user.name %>
 </p>
 <% if current_user === @user %>
 	<%= link_to 'Edit', edit_portafolio_path(@portafolio) %> |
 <% end %>
 
-<%= link_to 'Back'%>
-<%= @usersss %>
+<%= link_to 'Back', portafolios_path %>
