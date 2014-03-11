@@ -13,7 +13,7 @@
   <li><%= link_to 'Solo Administradores', users_path %></li>
 <% end %>
 <% if user_signed_in? %>
-  <li><%= link_to 'Crar un nuevo Proyecto' %></li>
+  <li><%= link_to 'Crar un nuevo Proyecto', new_user_portafolio_path(current_user) %></li>
 <% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Edit perfil', perfil_path(current_user) %></li>

@@ -10,9 +10,11 @@ class PerfilesController < ApplicationController
   # GET /perfiles/1
   # GET /perfiles/1.json
   def show
-    @user = current_user
-    @user.perfil ||= Perfil.new
-    @perfil = @user.perfil
+
+      @user = current_user
+      @user.perfil ||= Perfil.new
+      @perfil = @user.perfil
+    
   end
 
   # # GET /perfiles/new

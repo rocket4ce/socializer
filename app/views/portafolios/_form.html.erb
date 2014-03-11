@@ -1,6 +1,5 @@
 <%= current_user.name %>
-<%= simple_form_for[@user,@portafolio] do |f| %>
-
+<%= simple_form_for ([@user, @portafolio]) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.input :titulo %>

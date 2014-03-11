@@ -1,6 +1,6 @@
 Socializer::Application.routes.draw do
   
-  resources :perfiles, only: [:index, :show, :update]
+  resources :perfiles, only: [:show, :update]
 
   # resources :portafolios
 
@@ -9,11 +9,14 @@ Socializer::Application.routes.draw do
   resources :users
 
   resources :users do
-    resources :portafolios, except: [:index]
+    resources :portafolios, except: [:index] do
+      resources :comments
+    end
     member do
       post :follow
     end
   end
+
 
   devise_scope :user do
     get "registrate", to: "registrations#new", as: :registrate
