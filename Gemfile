@@ -15,7 +15,6 @@ gem 'rolify'
 gem 'simple_form'
 gem "socialization"
 gem 'impressionist'
-gem 'acts_as_commentable'
 group :development do
   gem 'better_errors'
   gem 'sqlite3'

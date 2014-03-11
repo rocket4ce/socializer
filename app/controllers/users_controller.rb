@@ -12,16 +12,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def unfollow
-  #   @user = User.find(params[:id])
-  #    # => This assumes you have a variable current_user who is authenticated
-  #   if current_user.unfollow!(@user)
-  #     redirect_to users_path, :notice => "ya no lo sigues"
-  #   else
-  #     redirect_to users_path, :alert => "Peerro culiao"
-  #   end
-  # end
-
   def index
     authorize! :index, @user, :message => 'Tienes que ser administrador para acceder.'
     @users = User.all

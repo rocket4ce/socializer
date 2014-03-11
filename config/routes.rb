@@ -9,9 +9,7 @@ Socializer::Application.routes.draw do
   resources :users
 
   resources :users do
-    resources :portafolios, except: [:index] do
-      resources :comments
-    end
+    resources :portafolios, except: [:index]
     member do
       post :follow
     end
@@ -24,5 +22,8 @@ Socializer::Application.routes.draw do
     get "editar", to: "registrations#edit", as: :editar
     delete "salir", to: "devise/sessions#destroy", as: :salir
   end
+
+
+
 
 end

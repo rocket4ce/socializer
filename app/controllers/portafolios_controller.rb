@@ -5,13 +5,14 @@ class PortafoliosController < ApplicationController
 
 
   def show
+    @user = current_user
     @portafolios = Portafolio.find(params[:id])
-    @comment = @portafolios.comments.new
   end
 
 
 
   def new
+      @user = current_user
       @portafolio = current_user.portafolios.new
       @portafolios = Portafolio.find_by(id: params[:id])
   end
@@ -32,17 +33,6 @@ class PortafoliosController < ApplicationController
     @portafolio = current_user.portafolios.new(portafolio_params)
     respond_to do |format|
       if @portafolio.save
-        format.html { redirect_to root_path, notice: 'Portafolio was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @portafolio }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @portafolio.errors, status: :unprocessable_entity }
-      end
-    end
-
-    @comment = current_user.comments.new(comment_params)
-    respond_to do |format|
-      if @comment.save
         format.html { redirect_to root_path, notice: 'Portafolio was successfully created.' }
         format.json { render action: 'show', status: :created, location: @portafolio }
       else
@@ -87,8 +77,5 @@ class PortafoliosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def portafolio_params
       params.require(:portafolio).permit(:descripcion, :user_id, :titulo)
-    end
-    def comment_params
-      params.require(:comment).permit(:comment, :user_id, :title)
     end
 end
