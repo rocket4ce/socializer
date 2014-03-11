@@ -15,6 +15,7 @@ gem 'rolify'
 gem 'simple_form'
 gem "socialization"
 gem 'impressionist'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 group :development do
   gem 'better_errors'
   gem 'sqlite3'
