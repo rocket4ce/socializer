@@ -17,5 +17,10 @@
 	<%= @portafolio.impressionist_count(:filter=>:session_hash) %>
 </p>
 
+<%= simple_form_for ([@user, @portafolio, @portafolio.comentarios.new ]) do |f|%>
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+	<%= f.submit 'Comentar', :class => 'button right' %>
+<% end %>
 
 <%= link_to 'Portafolio ', user_path(@portafolio.user_id) %>

@@ -9,7 +9,9 @@ Socializer::Application.routes.draw do
   resources :users
 
   resources :users do
-    resources :portafolios, except: [:index]
+    resources :portafolios, except: [:index] do
+      resources :comentarios
+    end
     member do
       post :follow
     end

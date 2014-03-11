@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311045241) do
+ActiveRecord::Schema.define(version: 20140311085404) do
+
+  create_table "comentarios", force: true do |t|
+    t.integer  "portafolio_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "follows", force: true do |t|
     t.string   "follower_type"
