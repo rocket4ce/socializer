@@ -1,14 +1,15 @@
 class ComentariosController < ApplicationController
 	before_action :cargar_portafolio
 	
+	
+	
 	def create
 		@comentarios = @portafolio.comentarios.new(comentarios_params)
 		respond_to do |format|
 			if @comentarios.save
-				# render text: params and return
-				format.html { render action: 'show', status: :created, location: @portafolio, notice: 'Portafolio was successfully created.' }
+				format.html { redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'Portafolio was successfully created.' }
 			else
-				redirect_to user_portafolio_path(user_id), alert: 'No hemos podido añadir tu comentario'
+				redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), alert: 'No hemos podido añadir tu comentario'
 			end
 		end
 	end
@@ -30,7 +31,7 @@ class ComentariosController < ApplicationController
 		@comentarios = @portafolio.comentarios.find(params[:id])
 		@comentarios.destroy
 
-		redirect_to user_portafolio_path, notice: 'Comentario eliminado'
+		redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'Comentario eliminado'
 	end
 	
 	private

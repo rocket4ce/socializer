@@ -7,6 +7,7 @@ class PortafoliosController < ApplicationController
   def show
     @user = current_user
     @portafolios = Portafolio.find(params[:id])
+    @cometarios = @portafolios.comentarios.all
   end
 
 
@@ -72,6 +73,7 @@ class PortafoliosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_portafolio
       @portafolio = Portafolio.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
