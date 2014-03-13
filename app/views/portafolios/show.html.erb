@@ -19,7 +19,11 @@
 
 <!-- desplegar comentarios -->
 
-
+<% @comentarios.each do |c| %>
+ <p>
+   <%= c.body %>
+ </p> 
+<% end %>
 
 <%= simple_form_for ([@user, @portafolio, @portafolio.comentarios.new ]) do |f|%>
 	<%= f.input :body, as: :text  %> 

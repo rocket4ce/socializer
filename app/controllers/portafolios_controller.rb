@@ -7,7 +7,7 @@ class PortafoliosController < ApplicationController
   def show
     @user = current_user
     @portafolios = Portafolio.find(params[:id])
-    @cometarios = @portafolios.comentarios.all
+    @cometarios 
   end
 
 
@@ -73,6 +73,7 @@ class PortafoliosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_portafolio
       @portafolio = Portafolio.find(params[:id])
+      @comentarios = @portafolio.comentarios.all
       
     end
 
