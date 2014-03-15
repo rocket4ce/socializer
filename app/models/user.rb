@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :portafolios
   has_one :perfil
-  has_many :replies, :through => :portafolios, :source => :comentarios
+  has_many :comentarios, :through => :portafolios
   acts_as_follower
   acts_as_followable
 end

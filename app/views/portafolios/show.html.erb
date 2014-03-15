@@ -19,15 +19,17 @@
 
 <!-- desplegar comentarios -->
 
+<%= simple_form_for ([@user, @portafolio, current_user.comentarios.new ]) do |f|%>
+	<%= f.input :body, as: :text  %> 
+	<%= f.submit 'Comentar', :class => 'button right' %>
+<% end %>
+
 <% @comentarios.each do |c| %>
  <p>
+   <%= c.user.name %>
    <%= c.body %>
  </p> 
 <% end %>
 
-<%= simple_form_for ([@user, @portafolio, @portafolio.comentarios.new ]) do |f|%>
-	<%= f.input :body, as: :text  %> 
-	<%= f.submit 'Comentar', :class => 'button right' %>
-<% end %>
 
 <%= link_to 'Portafolio ', user_path(@portafolio.user_id) %>
