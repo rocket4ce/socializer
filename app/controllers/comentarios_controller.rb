@@ -6,6 +6,7 @@ class ComentariosController < ApplicationController
 	def create
 		# render text: params and return
 		@comentarios = @portafolio.comentarios.new(comentarios_params)
+		@comentarios.user_id = current_user.id
 		respond_to do |format|
 			if @comentarios.save
 				format.html { redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'Portafolio was successfully created.' }

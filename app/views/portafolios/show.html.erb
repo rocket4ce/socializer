@@ -20,8 +20,8 @@
 <!-- desplegar comentarios -->
 
 <%= simple_form_for ([@user, @portafolio, current_user.comentarios.new ]) do |f|%>
-	<%= f.input :body, as: :text  %> 
-	<%= f.submit 'Comentar', :class => 'button right' %>
+  <%= f.input :body, as: :text  %> 
+  <%= f.submit 'Comentar', :class => 'button right' %>
 <% end %>
 
 <% @comentarios.each do |c| %>
