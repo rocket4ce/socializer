@@ -19,9 +19,15 @@
 
 <!-- desplegar comentarios -->
 
-<%= simple_form_for ([@user, @portafolio, current_user.comentarios.new ]) do |f|%>
-  <%= f.input :body, as: :text  %> 
-  <%= f.submit 'Comentar', :class => 'button right' %>
+
+
+<% if user_signed_in? %>
+   <%= simple_form_for ([@user, @portafolio, current_user.comentarios.new ]) do |f|%>
+    <%= f.input :body, as: :text  %> 
+    <%= f.submit 'Comentar', :class => 'button right' %>
+   <% end %>
+<% else %>
+<p>Tienes que Registrarte</p>
 <% end %>
 
 <% @comentarios.each do |c| %>

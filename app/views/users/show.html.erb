@@ -20,11 +20,16 @@
 	<%= link_to 'Edit account', edit_user_registration_path %>
 <% end %>
 
-<% unless current_user === @user  %>
-	<% if current_user.follows?(@user)  %>
-		<%= link_to("unfollow", follow_user_path(@user), method: :post) %>
-	<% else %>
-		<%= link_to("follow", follow_user_path(@user), method: :post) %>
+
+<% if user_signed_in? %>
+	<% unless current_user === @user  %>
+		<% if current_user.follows?(@user)  %>
+			<%= link_to("unfollow", follow_user_path(@user), method: :post) %>
+		<% else %>
+			<%= link_to("follow", follow_user_path(@user), method: :post) %>
+		<% end %>
 	<% end %>
 <% end %>
+
+
 

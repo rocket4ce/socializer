@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   respond_to :html, :json
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   def follow
     @user = User.find(params[:id])
