@@ -19,7 +19,7 @@
 <!-- despliega imagenes -->
 <% @imagenes.each do |p| %>
   <%= image_tag p.imagen_url %>
-  <%= link_to "Eliminar",user_portafolio_upload(current_user,params[:portafolio_id],portafolio), method: :delete %>
+  <%= link_to "Eliminar",user_portafolio_upload_path(current_user.id,params[:id],p), {method: :delete} %>
 <% end %>
 <!-- desplegar comentarios -->
 
