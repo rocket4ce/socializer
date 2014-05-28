@@ -5,6 +5,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'jquery-fileupload-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
@@ -15,7 +16,7 @@ gem 'rolify'
 gem 'simple_form'
 gem "socialization"
 gem 'impressionist'
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
 group :development do
   gem 'better_errors'
   gem 'sqlite3'

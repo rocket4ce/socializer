@@ -1,5 +1,8 @@
 Socializer::Application.routes.draw do
   
+  # get "uploads/create"
+  # get "uploads/destroy"
+
   resources :perfiles, only: [:show, :update]
 
   # resources :portafolios

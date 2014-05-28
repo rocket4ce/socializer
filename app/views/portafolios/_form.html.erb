@@ -1,5 +1,5 @@
 <%= current_user.name %>
-<%= simple_form_for ([@user, @portafolio]) do |f| %>
+<%= simple_form_for ([@user, @portafolio]), :html => {:multipart => true} do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.input :titulo %>
@@ -8,8 +8,16 @@
   <div class="form-inputs">
     <%= f.input :descripcion %>
   </div>
+  <%= f.fields_for :uploads do |p| %>
+     <div class="field">
+       <%= p.label :imagen %><br>
+       <%= p.file_field :imagen, :multiple => true, name: "uploads[imagen][]" %>
+     </div>
+  <% end %>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+

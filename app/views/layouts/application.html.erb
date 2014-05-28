@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Socializer" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Colegio de Diseñadores Profesionales de Chile" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Socializer" %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -10,11 +10,55 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <nav class="primario">
+        <section class="cabecera contenedor-nav">
+            <span class="suscribete">
+              <section>
+                <a href="#">Inscripción Boletín</a>
+              </section>
+            </span>
+            <ul class="navegacion">
+              <li><a href="#">¿que es el cdp?</a></li>
+              <li><a href="#">boletin cdp</a></li>
+              <li><a href="#">colaborar con nosotros</a></li>
+              <li><a href="#">registro</a></li>
+              <li><a href="#">ingreso</a></li>
+              <li><a href="#">contacto</a></li>
+            </ul>
+            <div class="buscar">
+            <section>
+                <form action="#">
+                  <input type="text" placeholder="BÚSQUEDA">
+                </form>
+            </section>
+            </div>
+        </section>
+      </nav>
+      <figure class="contenedor centrar">
+        <%= link_to image_tag("logo.png"), root_path, class: 'logo-home' %>
+      </figure>
+
+      <section class="nav-secundario">
+        <nav class="contenedor">
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Colegio</a></li>
+            <li><a href="#">Beneficios</a></li>
+            <li><a href="#">Instrumentos</a></li>
+            <li><a href="#">Comunidad</a></li>
+            <li><a href="#">Inscripcion</a></li>
+          </ul>
+        </nav>
+      </section>
+
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
+      <%= render 'layouts/navigation' %>
     </main>
+    <footer>
+      
+    </footer>
   </body>
 </html>

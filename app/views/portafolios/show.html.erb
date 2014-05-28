@@ -16,7 +16,9 @@
 <p>
 	<%= @portafolio.impressionist_count(:filter=>:session_hash) %>
 </p>
-
+<% @imagenes.each do |p| %>
+  <%= image_tag p.imagen_url %>
+<% end %>
 <!-- desplegar comentarios -->
 
 
@@ -29,6 +31,8 @@
 <% else %>
 <p>Tienes que Registrarte</p>
 <% end %>
+
+
 
 <% @comentarios.each do |c| %>
  <p>
