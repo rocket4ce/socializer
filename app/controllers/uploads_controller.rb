@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :carga_portafolio
+  before_action :load, only: [:index,:edit,:destroy,:show]
 
 
 	def create
@@ -18,15 +18,23 @@ class UploadsController < ApplicationController
 	end
 	
 	def destroy
-		@uploads = @portafolio.uploads.find(params[:id])
-		@uploads.destroy
-		redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'imagen eliminado'
+	
+	  if @portafolio.uploads.find(params[:id]).destroy
+	  	redirect_to :back
+	  end
+	#	redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'imagen eliminado'
 	end
 
   private
+
+  def load
+  	@user = current_user
+  	@portafolio = @user.portafolios.find(params[:portafolio_id])
+
+  end
 	def cargar_portafolio
-		@portafolio = Portafolio.find(params[:portafolio_id])
-		@user = current_user
+	#	@portafolio = Portafolio.find(params[:portafolio_id])
+	#	@user = current_user
 	end
 
 	def uploads_params

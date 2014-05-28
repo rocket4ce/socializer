@@ -1,6 +1,6 @@
 class PortafoliosController < ApplicationController
   before_filter :authenticate_user! , except: [:index, :show]
-  before_action :set_portafolio, only: [:show]
+  before_action :set_portafolio, only: [:show,:edit,:update]
   impressionist :actions=>[:show,:index]
 
 
@@ -25,9 +25,7 @@ class PortafoliosController < ApplicationController
 
   def edit
      @portafolio = current_user.portafolios.find_by(id: params[:id])
-      unless @portafolio 
-        redirect_to edit_user_portafolios_path
-      end
+      
   end
 
 
@@ -53,10 +51,10 @@ class PortafoliosController < ApplicationController
 
 
   def update
-    @portafolio = current_user.portafolios.find(params[:id])
+ 
     respond_to do |format|
       if @portafolio.update(portafolio_params)
-        format.html { redirect_to @portafolio, notice: 'Portafolio was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Portafolio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }
@@ -79,7 +77,8 @@ class PortafoliosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portafolio
-      @portafolio = Portafolio.find(params[:id])
+      @user = current_user
+      @portafolio = @user.portafolios.find(params[:id])
       @comentarios = @portafolio.comentarios.all
       
     end
