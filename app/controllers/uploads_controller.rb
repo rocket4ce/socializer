@@ -20,8 +20,7 @@ class UploadsController < ApplicationController
 	def destroy
 		@uploads = @portafolio.uploads.find(params[:id])
 		@uploads.destroy
-
-		redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'Comentario eliminado'
+		redirect_to user_portafolio_path(@portafolio.user_id, @portafolio), notice: 'imagen eliminado'
 	end
 
   private

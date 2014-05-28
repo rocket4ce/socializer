@@ -67,7 +67,8 @@ class PortafoliosController < ApplicationController
 
 
 
-  def destroy 
+  def destroy
+    @portafolio.uploads.find(params[:id]).destroy
     current_user.portafolios.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to user_portafolios_url }

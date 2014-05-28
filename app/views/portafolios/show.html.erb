@@ -16,12 +16,12 @@
 <p>
 	<%= @portafolio.impressionist_count(:filter=>:session_hash) %>
 </p>
+<!-- despliega imagenes -->
 <% @imagenes.each do |p| %>
   <%= image_tag p.imagen_url %>
+  <%= link_to "Eliminar",user_portafolio_upload(current_user,params[:portafolio_id],portafolio), method: :delete %>
 <% end %>
 <!-- desplegar comentarios -->
-
-
 
 <% if user_signed_in? %>
    <%= simple_form_for ([@user, @portafolio, current_user.comentarios.new ]) do |f|%>

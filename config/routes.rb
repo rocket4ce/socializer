@@ -14,6 +14,7 @@ Socializer::Application.routes.draw do
   resources :users do
     resources :portafolios, except: [:index] do
       resources :comentarios
+      resources :uploads, only: [:destroy]
     end
     member do
       post :follow
@@ -32,3 +33,4 @@ Socializer::Application.routes.draw do
 
 
 end
+
