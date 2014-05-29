@@ -17,10 +17,17 @@
 	<%= @portafolio.impressionist_count(:filter=>:session_hash) %>
 </p>
 <!-- despliega imagenes -->
-<% @imagenes.each do |p| %>
-  <%= image_tag p.imagen_url %>
-  <%= link_to "Eliminar",user_portafolio_upload_path(current_user.id,params[:id],p), {method: :delete} %>
-<% end %>
+
+<ul id="sortable" data-update-url="<%= sort_user_portafolios_url %>">
+  <% @imagenes.each do |p| %>
+    <li id="imagen_<%= p.id %>">
+      <%= image_tag p.imagen_url %>
+      <% if user_signed_in? %>
+        <%= link_to "Eliminar",user_portafolio_upload_path(current_user.id,params[:id],p), {method: :delete} %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 <!-- desplegar comentarios -->
 
 <% if user_signed_in? %>

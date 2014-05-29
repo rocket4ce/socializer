@@ -2,7 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  $('#portafolio_uploads_attributes_0_imagen').fileupload
+    $('#sortable').sortable
+        axis: 'y'
+        update: ->
+            $.post($(this).data('update-url'), $(this).sortable('serialize'))
+            console.log("hola")
+  # $('#portafolio_uploads_attributes_0_imagen').fileupload
     # dataType: 'script'
     # add: (e, data) ->
     #   types = /(\.|\/)(gif|jpe?g|png|mov|mpeg|mpeg4|avi)$/i

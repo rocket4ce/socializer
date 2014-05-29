@@ -8,10 +8,8 @@ class PortafoliosController < ApplicationController
     @user = current_user
     @portafolios = Portafolio.find(params[:id])
     @cometarios
-    @imagenes = @portafolios.uploads.all
+    @imagenes = @portafolios.uploads.order('position')
   end
-
-
 
   def new
     # render text: params and return
@@ -21,18 +19,9 @@ class PortafoliosController < ApplicationController
       @imagenes = @portafolio.uploads.build
   end
 
-
-
   def edit
-<<<<<<< HEAD
      @portafolio = current_user.portafolios.find_by(id: params[:id])    
-=======
-     @portafolio = current_user.portafolios.find_by(id: params[:id])
-      
->>>>>>> 0cac1a4caf7cec6dd6948af8e8a104df665678bd
   end
-
-
 
   def create
     # render text: params and return
@@ -52,14 +41,11 @@ class PortafoliosController < ApplicationController
 
   end
 
-
-
   def update
  
     respond_to do |format|
       if @portafolio.update(portafolio_params)
         format.html { redirect_to user_portafolio_path, notice: 'Portafolio was successfully updated.' }
-        format.html { redirect_to :back, notice: 'Portafolio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'new' }
@@ -67,8 +53,6 @@ class PortafoliosController < ApplicationController
       end
     end
   end
-
-
 
   def destroy
     @portafolio.uploads.find(params[:id]).destroy
@@ -79,17 +63,21 @@ class PortafoliosController < ApplicationController
     end
   end
 
+  def sort
+    params[:imagen].each_with_index do |id, index|
+      Upload.update_all({position: index + 1}, {id: id})
+    end
+    render nothing: true
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portafolio
-      @user = current_user
-      @portafolio = @user.portafolios.find(params[:id])
-      @comentarios = @portafolio.comentarios.all
-      
+      @portafolio = Portafolio.find(params[:id])
+      @comentarios = @portafolio.comentarios.all  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portafolio_params
-      params.require(:portafolio).permit(:descripcion, :user_id, :titulo, uploads_attributes: [:id, :portafolio_id, :user_id, :imagen])
+      params.require(:portafolio).permit(:descripcion, :user_id, :titulo, uploads_attributes: [:id, :portafolio_id, :user_id, :imagen, :position])
     end
 end

@@ -16,6 +16,8 @@ gem 'simple_form'
 gem "socialization"
 gem 'impressionist'
 gem 'carrierwave'
+gem 'jquery-ui-rails'
+gem 'acts_as_list'
 group :development do
   gem 'better_errors'
   gem 'sqlite3'

@@ -13,6 +13,9 @@ Socializer::Application.routes.draw do
 
   resources :users do
     resources :portafolios, except: [:index] do
+      collection do
+        post 'sort'
+      end
       resources :comentarios
       resources :uploads, only: [:destroy]
     end

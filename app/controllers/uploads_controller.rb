@@ -31,12 +31,7 @@ class UploadsController < ApplicationController
   def load
   	@user = current_user
   	@portafolio = @user.portafolios.find(params[:portafolio_id])
-
   end
-	def cargar_portafolio
-	#	@portafolio = Portafolio.find(params[:portafolio_id])
-	#	@user = current_user
-	end
 
 	def uploads_params
 		params.require(:upload).permit(:portafolio_id, :imagen)
