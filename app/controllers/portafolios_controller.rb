@@ -24,7 +24,12 @@ class PortafoliosController < ApplicationController
 
 
   def edit
+<<<<<<< HEAD
      @portafolio = current_user.portafolios.find_by(id: params[:id])    
+=======
+     @portafolio = current_user.portafolios.find_by(id: params[:id])
+      
+>>>>>>> 0cac1a4caf7cec6dd6948af8e8a104df665678bd
   end
 
 
@@ -53,7 +58,11 @@ class PortafoliosController < ApplicationController
  
     respond_to do |format|
       if @portafolio.update(portafolio_params)
+<<<<<<< HEAD
         format.html { redirect_to user_portafolio_path, notice: 'Portafolio was successfully updated.' }
+=======
+        format.html { redirect_to :back, notice: 'Portafolio was successfully updated.' }
+>>>>>>> 0cac1a4caf7cec6dd6948af8e8a104df665678bd
         format.json { head :no_content }
       else
         format.html { render action: 'new' }
