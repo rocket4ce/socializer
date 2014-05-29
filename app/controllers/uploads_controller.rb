@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
-  before_action :load, only: [:index,:edit,:destroy,:show]
+	before_filter :authenticate_user!
+  	before_action :load, only: [:index,:edit,:destroy,:show]
 
 
 	def create
